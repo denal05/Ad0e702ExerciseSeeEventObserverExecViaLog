@@ -19,6 +19,12 @@ class TriggerEventsCommand extends Command
 {
     private $_eventManager;
 
+    const EVENT_NAME = 'denal05_ad0e702_demo_event';
+    const EVENT_DATA = 'denal05_ad0e702_demo_text';
+    const EVENT_DATA_ARRAY_KEY = 'text';
+    const EVENT_DATA_ARRAY_VALUE = 'AD0-E702';
+
+
     public function __construct(
         EventManager $eventManager
     ) {
@@ -47,9 +53,11 @@ class TriggerEventsCommand extends Command
         $exitCode = 0;
 
         try {
-            $demoTextArray = array('text' => 'AD0-E702');
-            $this->_eventManager->dispatch('denal05_ad0e702_demo_text_event', ['denal05_text' => $demoTextArray]);
-            $output->writeln('<info>' . $demoTextArray['text'] . '</info>');
+            $demoTextArray = array(self::EVENT_DATA_ARRAY_KEY => self::EVENT_DATA_ARRAY_VALUE);
+            $this->_eventManager->dispatch(self::EVENT_NAME, [self::EVENT_DATA => $demoTextArray]);
+            $output->writeln('<info>Event Name: ' . self::EVENT_NAME . '</info>');
+            $output->writeln('<info>Event Data: ' . self::EVENT_DATA . '</info>');
+            $output->writeln('<info>' . var_dump($demoTextArray) . '</info>');
             $output->writeln('<info>The demo events have been triggerred successfully.</info>');
             $output->writeln('<info>Please inspect var/log/Denal05_Ad0e702ExerciseSeeEventObserverExecViaLog/debug.log</info>');
         } catch (LocalizedException $e) {

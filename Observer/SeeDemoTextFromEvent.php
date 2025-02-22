@@ -23,7 +23,7 @@ class SeeDemoTextFromEvent implements \Magento\Framework\Event\ObserverInterface
         $exitCode = 0;
 
         try {
-            $fetchedDataFromEvent = $observer->getData('denal05_text');
+            $fetchedDataFromEvent = $observer->getData('denal05_ad0e702_demo_text');
             $this->logger->debug(__METHOD__ . ': ' . $fetchedDataFromEvent['text']);
         } catch (LocalizedException $e) {
             $this->logger->error($e->getMessage());
