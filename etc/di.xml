@@ -12,4 +12,31 @@
         </arguments>
     </type>
 
+    <!-- Custom Log -->
+    <virtualType name="Denal05Ad0e702ExerciseSeeEventObserverExecViaLogErrorLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="error"
+                      xsi:type="object"
+                >Denal05\Ad0e702ExerciseSeeEventObserverExecViaLog\Logger\Handler\ErrorHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Denal05Ad0e702ExerciseSeeEventObserverExecViaLogDebugLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug"
+                      xsi:type="object"
+                >Denal05\Ad0e702ExerciseSeeEventObserverExecViaLog\Logger\Handler\DebugHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Denal05\Ad0e702ExerciseSeeEventObserverExecViaLog\Observer\SeeDemoTextFromEvent">
+        <arguments>
+            <argument name="logger" xsi:type="object">Denal05Ad0e702ExerciseSeeEventObserverExecViaLogDebugLogger</argument>
+        </arguments>
+    </type>
+
 </config>
