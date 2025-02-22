@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Custom CLI Command -->
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="consolecommand_trigger_events"
+                      xsi:type="object"
+                >Denal05\Ad0e702ExerciseSeeEventObserverExecViaLog\Console\Command\TriggerEventsCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>
